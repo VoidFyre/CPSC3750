@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Chapter 4 - JS Demo
+        </title>
+        
+        <style>
+        
+        @font-face {
+            font-family: GalaxyEdge;
+            src: url("/fonts/EdgeOfTheGalaxyRegular.otf");
+        }
+        
+        @font-face {
+            font-family: GalaxyEdge;
+            font-weight: bold;
+            src: url("/fonts/EdgeOfTheGalaxyBold.otf");
+        }
+        
+        @font-face {
+            font-family: GalaxyEdge;
+            font-style: italic;
+            src: url("/fonts/EdgeOfTheGalaxyItalic.otf");
+        }
+        
+        @font-face {
+            font-family: GalaxyEdge;
+            font-weight: bold;
+            font-style: italic;
+            src: url("/fonts/EdgeOfTheGalaxyBoldItalic.otf");
+        }
+        
+        :root {
+            --text-color: white;
+            --border-color: white;
+            --border-color-hover: magenta;
+            --background-color: rgb(46, 46, 46);
+            --background-color-a: rgba(46, 46, 46, .8);
+            --background-color-hover: rgb(84, 84, 84);
+            --background-color-a-hover: rgba(84, 84, 84, .8);
+        }
+        
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            margin: 0;
+            position: relative;
+            background-color: black;
+            width: 100%;
+            height: auto;
+        }
+        
+        h1 {
+            position: relative;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 15vh;
+            background-color: background-color: var(--background-color);
+            background-color: var(--background-color-a);
+            font-family: GalaxyEdge;
+            font-size: 10vmin;
+            color: magenta;
+            margin: 0;
+        }
+        
+        h3 {
+            font-size: 3vmin;
+            margin: 10px;
+            text-decoration: underline;
+            text-align: center;
+            color: var(--text-color);
+        }
+        
+        .fullnav {
+            position: sticky;
+            z-index: 2;
+            top: 0;
+        }
+        
+        aside {
+            position: relative;
+            overflow: auto;
+            backdrop-filter: blur(10px);
+            margin-top: 2%;
+            background-color: var(--background-color);
+            background-color: var(--background-color-a);
+            float: right;
+            width: 15%;
+            height: 60vh;
+            border-left: 2px solid var(--border-color);
+            border-top: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+        
+        aside p {
+            margin: 10px;
+            color: var(--text-color);;
+        }
+        
+        .topbar {
+            position: relative;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background-color: var(--background-color);
+            background-color: var(--background-color-a);
+            border-bottom: 2px solid var(--border-color);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        
+        .topbar ul {
+            position: relative;
+            list-style-type: none;
+            width: 100%;
+        }
+        
+        .topbar ul li {
+            display: inline-block;
+            position: relative;
+            width: 10%;
+            margin: 0 2% 0 2%;
+        }
+        
+        .topbar ul li a {
+            width: 100%;
+            padding: 5% 0 5% 0;
+            margin: 5% 0 5% 0;
+            float: left;
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .topbar ul li ul.dropdown li {
+            display: block;
+            width: 80%;
+        }
+        
+        .topbar ul li ul.dropdown {
+            background: var(--background-color);
+            background: var(--background-color-a);
+            margin: 0;
+            padding: 10%;
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            position: absolute;
+            top: 110%;
+            width: 100%;
+            height: auto;
+            z-index: 999;
+            display: none;
+        }
+        
+        .topbar ul li ul.dropdown::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+        
+        .topbar ul li a:hover {
+            background-color: var(--background-color-hover);
+            background-color: var(--background-color-a-hover);
+            border-color: var(--border-color-hover);
+        }
+        
+        .topbar ul li:focus-within ul.dropdown {
+            display: block;
+        }
+        
+        .sidebar {
+            position: relative;
+            overflow: visible;
+            backdrop-filter: blur(10px);
+            margin-top: 2%;
+            background-color: var(--background-color);
+            background-color: var(--background-color-a);
+            float: left;
+            width: 15%;
+            height: 60vh;
+            border: 2px solid var(--border-color);
+            border-left: 0;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        
+        ul {
+            position: relative;
+            height:100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            list-style-type: none;
+        }
+        
+        li a {
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            padding: 5% 5%;
+        }
+        
+        
+        
+        li a:link {
+            color: hotpink;
+        }
+        
+        li a:visited {
+            color: pink;
+        }
+        
+        li a:hover {
+            background-color: var(--background-color-hover);
+            background-color: var(--background-color-a-hover);
+            color: var(--text-color);
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            margin-top: 2%;
+            height: auto;
+            width: 100%;
+            margin-bottom: 0;
+        }
+        
+        .content ul li {
+            position: relative;
+            width: 100%;
+            height: 10vh;
+            float: left;
+        }
+        
+        article {
+            position: relative;
+            overflow: auto;
+            background-color: var(--background-color);
+            background-color: var(--background-color-a);
+            backdrop-filter: blur(10px);
+            padding: 2%;
+            padding-top: 0;
+            margin: auto;
+            margin-top: 2%;
+            margin-bottom: 0;
+            width: 50%;
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        ul.cntr {
+            position: relative;
+            display: inline-block;
+            top: 20%;
+            list-style-type: none;
+            height: auto;
+            width: 15%;
+            color: white;
+        }
+        
+        ul.btns {
+            position: relative;
+            display: inline-block;
+            top: 20%;
+            list-style-type: none;
+            height: auto;
+            width: 40%;
+        }
+        
+        button {
+            overflow: hidden;
+            color: black;
+            position: relative;
+            background-color: white;
+            border-radius: 20px;
+            height: 100%;
+            width: 100%;
+        }
+        
+        button h1 {
+            height: 100%;
+            width: 100%;
+            backdrop-filter: none;
+            border: none;
+            background: none;
+            position: relative;
+            color: inherit;
+        }
+        
+        </style>
+        
+    </head>
+    <body>
+        <h1>
+            Void Fyre
+        </h1>
+        <div class="fullnav">
+            <nav class="topbar">
+                <ul>
+                    <li><a href="https://voidfyre.space">Void Fyre - Home</a></li>
+                    <li><a href="#">Github&#x25BE;</a>
+                        <ul class="dropdown">
+                            <li><a href="https://voidfyre.github.io" target="_blank">
+                                Void's Github Page
+                            </a></li>
+                            
+                            <li><a href="https://github.com/VoidFyre" target="_blank">
+                                Void's Github Repos
+                            </a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="mailto:administrator@voidfyre.space" target="_blank">Send me an Email
+                    </a></li>
+                    <li><a href="/cpsc3750/courseworklist.html">Course Work
+                    </a></li>
+                </ul>
+            </nav>
+            <nav class="sidebar">
+                <ul>
+                    <h3>Page Navigation</h3>
+                    <li><a href="#digitalart">Digital Art</a></li>
+                    <li><a href="#renderings">Renderings</a></li>
+                    <li><a href="#minecraft">Minecraft Builds</a></li>
+                    <li><a href="#valheim">Valheim Builds</a></li>
+                </ul>
+            </nav>
+            <aside>
+                <h3>Information</h3>
+                <p>
+                    This page changes colors when you click the buttons!
+                    Each time the color changes, the counter for the
+                    corresponding color increases. Every time a button changes
+                    color (black to white or white to black), that corresponding
+                    counter is increased. 
+                </p>
+            </aside>
+        </div>
+        <div class="content">
+            <article>
+                <ul class="cntr">
+                    <li>
+                        Red Counter:
+                        <div id="redCounter">
+                            0
+                        </div>
+                    </li>
+                        
+                    <li>
+                        Green Counter:
+                        <div id="greenCounter">
+                            0
+                        </div>
+                    </li>
+                    
+                    <li>
+                        Blue Counter:
+                        <div id="blueCounter">
+                            0
+                        </div>
+                    </li>
+                </ul>
+                
+                <ul class="btns">
+                    <li>
+                        <button id="red" onmouseenter="mouseOverRed()" onmouseleave="mouseOutRed()" onclick="red()">
+                            <h1>RED</h1>
+                        </button>
+                    </li>
+                        
+                    <li>
+                        <button id="green" onmouseenter="mouseOverGreen()" onmouseleave="mouseOutGreen()" onclick="green()">
+                            <h1>GREEN</h1>
+                        </button>
+                    </li>
+                    
+                    <li>
+                        <button id="blue" onmouseenter="mouseOverBlue()" onmouseleave="mouseOutBlue()" onclick="blue()">
+                            <h1>BLUE</h1>
+                        </button> 
+                    </li>
+                </ul>
+               
+                <ul class="cntr">
+                    <li>
+                        Red Button Change Counter:
+                        <div id="redBtnCounter">
+                            0
+                        </div>
+                    </li>
+                        
+                    <li>
+                        Green Button Change Counter:
+                        <div id="greenBtnCounter">
+                            0
+                        </div>
+                    </li>
+                    
+                    <li>
+                        Blue Button Change Counter:
+                        <div id="blueBtnCounter">
+                            0
+                        </div>
+                    </li>
+                </ul>
+            </article>
+            
+            
+            
+            
+            
+        </div>
+        
+        
+        <script>
+        
+        const body = document.body;
+        const redbtn = document.getElementById("red");
+        const greenbtn = document.getElementById("green");
+        const bluebtn = document.getElementById("blue");
+        
+        const redCounter = document.getElementById("redCounter");
+        const greenCounter = document.getElementById("greenCounter");
+        const blueCounter = document.getElementById("blueCounter");
+        
+        const redBtnCounter = document.getElementById("redBtnCounter");
+        const greenBtnCounter = document.getElementById("greenBtnCounter");
+        const blueBtnCounter = document.getElementById("blueBtnCounter");
+        
+        let currentColor = 'black';
+        
+        let redDown = false;
+        let greenDown = false;
+        let blueDown = false;
+        
+        let redCount = 0;
+        let greenCount = 0;
+        let blueCount = 0;
+        
+        let redChangeCount = 0;
+        let greenChangeCount = 0;
+        let blueChangeCount = 0;
+        
+        function red() {
+            body.style.backgroundColor = "red";
+            if(currentColor != 'red') {
+                redCount++;
+                redCounter.innerHTML = redCount;
+                currentColor = 'red';
+            }
+            
+        }
+        
+        function green() {
+            body.style.backgroundColor = "green";
+            if(currentColor != 'green') {
+                greenCount++;
+                greenCounter.innerHTML = greenCount;
+                currentColor = 'green';
+            }
+            
+        }
+        
+        function blue() {
+            body.style.backgroundColor = "blue";
+            if(currentColor != 'blue') {
+                blueCount++;
+                blueCounter.innerHTML = blueCount;  
+                currentColor = 'blue';
+            }
+            
+        }
+        
+        function mouseOverRed() {
+            redbtn.style.backgroundColor = "black";
+            redbtn.style.color = "white";
+            redChangeCount++;
+            redBtnCounter.innerHTML = redChangeCount;
+        }
+        
+        function mouseOutRed() {
+            redbtn.style.backgroundColor = "white";
+            redbtn.style.color = "black";
+            redChangeCount++;
+            redBtnCounter.innerHTML = redChangeCount;
+        }
+        
+        function mouseOverGreen() {
+            greenbtn.style.backgroundColor = "black";
+            greenbtn.style.color = "white";
+            greenChangeCount++;
+            greenBtnCounter.innerHTML = greenChangeCount;
+        }
+        
+        function mouseOutGreen() {
+            greenbtn.style.backgroundColor = "white";
+            greenbtn.style.color = "black";
+            greenChangeCount++;
+            greenBtnCounter.innerHTML = greenChangeCount;
+        }
+        
+        function mouseOverBlue() {
+            bluebtn.style.backgroundColor = "black";
+            bluebtn.style.color = "white";
+            blueChangeCount++;
+            blueBtnCounter.innerHTML = blueChangeCount;
+        }
+        
+        function mouseOutBlue() {
+            bluebtn.style.backgroundColor = "white";
+            bluebtn.style.color = "black";
+            blueChangeCount++;
+            blueBtnCounter.innerHTML = blueChangeCount;
+        }
+        </script>
+    </body>
+</html>
