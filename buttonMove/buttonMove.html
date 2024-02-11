@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Moving Buttons!
+        </title>
+        <script type="text/javascript" src="javascript/buttonMove.js"></script>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="css/buttonMove.css">
+    </head>
+    
+    <body>
+        <h1>
+            Moving Buttons!
+        </h1>
+        <div class="fullnav">
+            <nav class="topbar">
+                <ul>
+                    <li><a href="https://voidfyre.space">Void Fyre - Home</a></li>
+                    <li><a href="#">Github&#x25BE;</a>
+                        <ul class="dropdown">
+                            <li><a href="https://voidfyre.github.io" target="_blank">
+                                Void's Github Page
+                            </a></li>
+                            
+                            <li><a href="https://github.com/VoidFyre" target="_blank">
+                                Void's Github Repos
+                            </a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="mailto:administrator@voidfyre.space" target="_blank">Send me an Email
+                    </a></li>
+                    <li><a href="/cpsc3750/courseworklist.html">Course Work
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="content">
+            <ul class=top>
+                <li><a id="colorSelection" href="#">SELECT COLOR</a>
+                    <ul class="colorDropdown">
+                        <li><button class="colorOption" id="red" onclick="selectColor('red')"></button></li>
+                        <li><button class="colorOption" id="green" onclick="selectColor('green')"></button></li>
+                        <li><button class="colorOption" id="blue" onclick="selectColor('blue')"></button></li>
+                        <li><button class="colorOption" id="yellow" onclick="selectColor('yellow')"></button></li>
+                        <li><button class="colorOption" id="white" onclick="selectColor('white')"></button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="makeButton" onclick="createButton()">Create Button</button>
+                </li>
+                <li>
+                    <p id="counter">Button Sum: 0</p>
+                </li>
+            </ul>
+            
+            <div id="viewBox" class="viewArea"></div>
+            
+        </div>
+    </body>
+</html>

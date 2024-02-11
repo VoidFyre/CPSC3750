@@ -1,0 +1,106 @@
+ul {
+    list-style-type: none;
+}
+
+.top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.top li {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    height: 50px;
+    width: 200px;
+}
+
+.top li .colorOption {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.top #colorSelection {
+    color: black;
+    background: white;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    width: 200px;
+}
+
+.funnyButton {
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: black;
+    height: 50px;
+    width: 200px;
+    
+}
+
+#white {
+    background-color: white;
+}
+
+#red {
+    background-color: red;
+}
+
+#green {
+    background-color: green;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#counter {
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: black;
+}
+
+.top .makeButton {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    width: 200px;
+}
+
+.top li .colorDropdown {
+    z-index: 999;
+    display: none;
+}
+
+.top li:focus-within .colorDropdown {
+    display: block;
+}
+
+.viewArea {
+    position: relative;
+    margin: auto;
+    display: block;
+    background-color: black;
+    height: 1000px;
+    width: 100%;
+}
