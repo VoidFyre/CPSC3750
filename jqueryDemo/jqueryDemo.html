@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jquery Demo</title>
+        <style>
+            /* Setting Global Variables */
+            :root {
+                --text-color: white;
+                --link-color: magenta;
+                --link-color-hover: white;
+                --border-color: white;
+                --border-color-hover: magenta;
+                --background-color: rgb(46, 46, 46);
+                --background-color-a: rgba(46, 46, 46, .8);
+                --background-color-hover: rgb(84, 84, 84);
+                --background-color-a-hover: rgba(84, 84, 84, .8);
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/javascript/topbar-import.js"></script>
+
+        <link href=
+        'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' 
+                 rel='stylesheet'>
+        
+        <script src=
+        "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+        </script>
+        <link rel="stylesheet" href="/css/elementStyles.css">
+        <script>
+        $(document).ready(function(){
+            $("div").mouseenter(function(){
+                $(this).css("background-color","yellow");
+            });
+            
+            $("div").mouseleave(function(){
+                $(this).css("background-color","white");
+            });
+            
+            $("#fadeDiv1").click(function(){
+                $("#div1").fadeOut("slow");
+            });
+            
+            $("#fadeDiv2").click(function(){
+                $("#div2").fadeOut("slow");
+            });
+            
+            $("#fadeDiv3").click(function(){
+                $("#div3").fadeOut("slow");
+            });
+            
+            $("#my_date_picker").datepicker();
+            
+            $("#accordion").accordion();
+            
+            var progressbar = $("#progressbar");
+            $("#progressbar").progressbar({
+                max:20
+            });
+            
+            function restart() {
+                progressbar.progressbar("value", 0);
+                setTimeout(progress, 0)
+            }
+            
+            function progress() {
+                var val = progressbar.progressbar("value") || 0;
+                progressbar.progressbar("value", val + 1);
+                if (val == 20) {
+                    progressbar.progressbar("value", 0);
+                }
+                setTimeout(progress, 1000);
+            }
+            setTimeout(progress, 10);
+        });
+        </script>
+    </head>
+    <body>
+        <header id="header">
+                <script>
+                    headerImport();
+                </script>
+            </header>
+            <div class="fullnav" id="fullnav">
+                <script>
+                    topbarImport();
+                </script>
+            </div>
+        <h2>Welcome to My Homepage</h2>
+        
+        <p>This is a paragraph.</p>
+        
+        <div id="accordion">
+            
+            <h3>Div 1</h3>
+            
+            <div id="div1" style="border: 1px solid black;">
+                <p>A paragraph in a div.</p>
+                <p>Another paragraph in a div.</p>
+                <button id="fadeDiv1">Fade Div 1</button>
+            </div>
+            
+            <h3>Div 2</h3>
+            
+            <div id="div2" style="border: 1px solid black;">
+                <p>A paragraph in another div.</p>
+                <p>Another paragraph in another div.</p>
+                <button id="fadeDiv2">Fade Div 2</button>
+            </div>
+            
+            <h3>Div 3</h3>
+            
+            <div id="div3" style="border: 1px solid black;">
+                <p>A paragraph in another div.</p>
+                <p>Another paragraph in another div.</p>
+                <button id="fadeDiv3">Fade Div 3</button>
+            </div>
+        </div>
+        
+        
+        Date: <input type="text" id="my_date_picker">
+        <br>
+        
+        Doing a thing every 20 seconds:
+        <br>
+        <div id="progressbar"></div>
+        
+        <footer class="mainfooter">
+            Copyright Void Fyre&trade;
+        </footer>
+    </body>
+</html>
