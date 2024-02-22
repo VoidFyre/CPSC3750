@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang=”en”>
+    <head>
+        <title>Array Sorting Example</title>
+        <script type="text/javascript" src="javascript/sort.js"></script>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    
+    <body>
+        <h1>
+            Sorting String Arrays
+        </h1>
+        <div class="fullnav">
+            <nav class="topbar">
+                <ul>
+                    <li><a href="https://voidfyre.space">Void Fyre - Home</a></li>
+                    <li><a href="#">Github&#x25BE;</a>
+                        <ul class="dropdown">
+                            <li><a href="https://voidfyre.github.io" target="_blank">
+                                Void's Github Page
+                            </a></li>
+                            
+                            <li><a href="https://github.com/VoidFyre" target="_blank">
+                                Void's Github Repos
+                            </a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="mailto:administrator@voidfyre.space" target="_blank">Send me an Email
+                    </a></li>
+                    <li><a href="/cpsc3750/courseworklist.html">Course Work
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+        <article>
+            <p>Enter two or more names in the field below,
+            and the sorted list of names will appear in the
+            textarea.</p>
+            
+            <form name="theform">
+                <p>Name:</p>
+                <input type="text" id="newname" name="newname" size="20">
+                <input type="button" id="addname" name="addname" value="Add"
+                onclick="SortNames();">
+                <br>
+                <h2>Sorted Names</h2>
+                <textarea cols="60" rows="10" name="sorted">
+                The sorted names will appear here.
+                </textarea>
+            </form>
+        </article>
+        
+    </body>
+</html>
+
+
