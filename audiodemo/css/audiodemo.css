@@ -1,0 +1,32 @@
+button {
+    background: none;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    height: 5vh;
+    width: auto;
+    color: white;
+}
+
+button:hover {
+    border: 2px solid var(--border-color-hover);
+}
+
+#bookmarks {
+    list-style-type: none;
+    margin: 0;
+}
+
+.bookmark {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.mediaButton {
+    height: 5vh;
+    aspect-ratio: 1/1;
+}
+
+input {
+    text-align: center;
+}
