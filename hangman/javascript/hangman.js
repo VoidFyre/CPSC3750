@@ -24,6 +24,7 @@ function startGame() {
 }
 
 function setupGame(word) {
+    img.src="/cpsc3750/images/hangman0.png"
     selectedWord = word;
     attemptsLeft = 10;
     wordToGuess.style.color = "white";
