@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Ajax and Handlebars</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <script type="text/javascript" src="/javascript/topbar-import.js"></script>
+    </head>
+    <body>
+        <header id="header">
+            <script>
+                headerImport("AJAX and Handlebars");
+            </script>
+        </header>
+        <div class="fullnav" id="fullnav">
+            <script>
+                topbarImport();
+            </script>
+        </div>
+        
+        <div class="content">
+            <article>
+                <button id="btn">Fetch Info for 3 New Animals</button>
+                <div id="animal-info"></div>
+            </article>
+        </div>
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script type="text/javascript" src="javascript/ajaxhandlebars.js"></script>
+        
+        <script id="test" type="text/x-handlebars-template">
+            <p>{{name}}</p>
+        </script>
+        
+        <script id="petsTemplate" type="text/x-handlebars-template">
+            {{#each pets}}
+            <p>{{name}} is a {{species}}.</p>
+            {{/each}}
+        </script>
+    </body>
+</html>
