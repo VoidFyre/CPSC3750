@@ -4,6 +4,7 @@
     <head>
         <title>Ajax and Handlebars</title>
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="css/ajaxhandlebars.css">
         <script type="text/javascript" src="/javascript/topbar-import.js"></script>
     </head>
     <body>
@@ -20,12 +21,18 @@
         
         <div class="content">
             <article>
-                <button id="btn">Fetch Info for 3 New Animals</button>
+                <button id="btn">Fetch Info for 3 New Animals (No handlebars)</button>
                 <div id="animal-info"></div>
+            </article>
+            <article>
+                <button id="btn2">Fetch Info for 3 Animals (handlebars)</button>
+                <div id="animal-info2"></div>
             </article>
         </div>
         
-        
+        <footer class="mainfooter">
+            Copyright Void Fyre&trade;
+        </footer>
         
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <script type="text/javascript" src="javascript/ajaxhandlebars.js"></script>
@@ -36,7 +43,26 @@
         
         <script id="petsTemplate" type="text/x-handlebars-template">
             {{#each pets}}
-            <p>{{name}} is a {{species}}.</p>
+                <div class="pet">
+                    <div class="photo-column">
+                        <img src="{{photo}}">
+                    </div>
+                    
+                    <div class="info-column">
+                        <h3>{{name}}<span class="species">({{species}})</span></h3>
+                        
+                        <span>Age: {{calculateAge birthYear}}</span>
+                        
+                        {{#if favFoods}}
+                        <h4 class="headline-bar"><span>Favorite Foods</span></h4>
+                        <ul class="favorite-foods">
+                            {{#each favFoods}}
+                                <li><span>{{{this}}}</span></li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                    </div>
+                </div>
             {{/each}}
         </script>
     </body>
