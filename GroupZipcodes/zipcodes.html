@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Zip Codes Distance
+        </title>
+        <link rel="stylesheet" href="/css/style.css">
+        <script type="text/javascript" src="/javascript/topbar-import.js"></script>
+    </head>
+    
+    <body onload="getData();">
+        <header id="header">
+            <script>
+                headerImport("Zip Codes");
+            </script>
+        </header>
+        <div class="fullnav" id="fullnav">
+            <script>
+                topbarImport();
+            </script>
+        </div>
+        
+        <div class="content">
+            <article>
+                <p>Zip Code 1</p>
+                <input type="text" id="zip1">
+                <p>Zip Code 2</p>
+                <input type="text" id="zip2"><br>
+                <button id="calc">Calculate Distance</button>
+                
+                <p id="dist"></p>
+            </article>
+        </div>
+        
+        <script type="text/javascript" src="javascript/zipcodes.js"></script>
+        
+        <footer class="mainfooter">
+            Copyright Void Fyre&trade;
+        </footer>
+    </body>
+</html>
